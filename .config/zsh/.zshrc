@@ -113,5 +113,7 @@ source $ZDOTDIR/aliases.zsh
 # | LOCAL MACHINE INSTALLS |
 # +------------------------+
 
-source $ZDOTDIR/local.zsh
+if [ -f $ZDOTDIR/local.zsh ]; then
+  source $ZDOTDIR/local.zsh
+fi
 
