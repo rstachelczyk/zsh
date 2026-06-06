@@ -1,0 +1,13 @@
+# Zsh compiled files
+.config/zsh/*.zwc
+.config/zsh/.zcompdump*
+
+# Auto-installed by plugin manager
+.config/zsh/plugins/
+
+# Machine-local overrides
+.config/zsh/local.zsh
+
+# macOS metadata
+.DS_Store
+

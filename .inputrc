@@ -1,0 +1,5 @@
+set editing-mode vi
+
+# remap escape key
+set keymap vi-insert
+  "jj": vi-movement-mode
