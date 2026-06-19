@@ -24,13 +24,16 @@ elif command -v fdfind >/dev/null 2>&1; then
 fi
 
 # Ctrl T uses fd
-export FZF_CTRL_T_COMMAND="$FZF_CTRL_T_COMMAND"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # Compact UI
 export FZF_DEFAULT_OPTS="
   --height 40%
-  --layout=reverse
+  --layout reverse
   --border
-  --preview 'bat --style=numbers --color=always {}'
 "
+
+# Ctrl T use bat for preview window 
+export _FZF_PREVIEW_CMD='bat --color=always --style=plain,numbers --line-range=:500 {}'
+export FZF_CTRL_T_OPTS="--preview '$_FZF_PREVIEW_CMD'"
 
