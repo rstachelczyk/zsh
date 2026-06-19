@@ -17,6 +17,10 @@ command_timeout = 1000
 # Arch    = "󰣇"
 # Macos   = ""
 
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[✗](bold red)"
+
 [directory]
 truncation_length = 3
 truncation_symbol = "…/"
@@ -56,8 +60,3 @@ format = "[🔴 Rails $output](bold red) "
 command = "rg -o '^    rails [(][0-9.]+[)]' Gemfile.lock | rg -o '[0-9.]+'"
 detect_files = ["Gemfile", "Gemfile.lock"]
 when = "test -f Gemfile.lock"
-
-[character]
-success_symbol = "[❯](green)"
-error_symbol = "[❯](red)"
-vimcmd_symbol = "[❮](blue)"
