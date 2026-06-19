@@ -16,4 +16,21 @@ if [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]]; then
   source /usr/share/doc/fzf/examples/completion.zsh
 fi
 
-source $DOTFILES/zsh/fzf.zsh
+if command -v fd >/dev/null 2>&1; then
+  export FZF_DEFAULT_COMMAND='fd --type f --hidden --strip-cwd-prefix'
+elif command -v fdfind >/dev/null 2>&1; then
+  # fd is fdfind on Ubuntu
+  export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --strip-cwd-prefix'
+fi
+
+# Ctrl T uses fd
+export FZF_CTRL_T_COMMAND="$FZF_CTRL_T_COMMAND"
+
+# Compact UI
+export FZF_DEFAULT_OPTS="
+  --height 40%
+  --layout=reverse
+  --border
+  --preview 'bat --style=numbers --color=always {}'
+"
+

@@ -18,6 +18,14 @@ fi
 export EDITOR="vim"
 export VISUAL="vim"
 
+# ---------- Pager ----------
+if command -v bat >/dev/null 2>&1; then
+  # export MANPAGER="bat -l man -p"
+  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+elif command -v batcat >/dev/null 2>&1; then
+  export MANPAGER="batcat -l man -p"
+fi
+
 # ---------- PATH ----------
 # Personal binaries/scripts
 export PATH="$HOME/.local/bin:$PATH"
