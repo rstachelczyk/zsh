@@ -17,10 +17,10 @@ if [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]]; then
 fi
 
 if command -v fd >/dev/null 2>&1; then
-  export FZF_DEFAULT_COMMAND='fd --type f --hidden --strip-cwd-prefix'
+  export FZF_DEFAULT_COMMAND='fd --type f --hidden --strip-cwd-prefix --exclude .git'
 elif command -v fdfind >/dev/null 2>&1; then
   # fd is fdfind on Ubuntu
-  export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --strip-cwd-prefix'
+  export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --strip-cwd-prefix --exclude .git'
 fi
 
 # Ctrl T uses fd
