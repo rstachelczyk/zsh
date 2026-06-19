@@ -22,13 +22,13 @@
 alias ls='eza --icons --group-directories-first --color=auto'
 
 # Detailed listing
-alias ll='ls -lah --git'
+alias ll='ls -lh --git'
 
 # Detailed listing including hidden files
-alias lsa='ls -a'
-alias la='ls -a'
+alias lsa='ls -lah --git'
+alias la='lsa'
 
-alias lt='ls -latrh'
+alias lt='lsa --sort=modified -r'
 
 # Tree view
 alias tree='ls --tree'
