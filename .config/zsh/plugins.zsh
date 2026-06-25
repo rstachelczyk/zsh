@@ -37,3 +37,7 @@ ZVM_CURSOR_STYLE_INSERT=beam
 ZVM_CURSOR_STYLE_VISUAL=block
 ZVM_VI_EDITOR=nvim
 ZVM_SYSTEM_CLIPBOARD_ENABLED=true
+
+  # zsh-vi-mode resets keymaps on init, clobbering fzf's bindings.
+  # Re-source fzf keybindings after zvm finishes initializing.
+  zvm_after_init_commands+=('source $ZDOTDIR/fzf.zsh')
