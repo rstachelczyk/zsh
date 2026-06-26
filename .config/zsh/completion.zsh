@@ -41,9 +41,3 @@ zstyle ':completion:*:*:-command-:*:*' group-order aliases builtins functions co
 zstyle ':completion:*:*:*:*:descriptions' format '%F{blue}-- %d --%f'
 zstyle ':completion:*:*:*:*:warnings'     format '%F{red}-- no matches found --%f'
 
-# hjkl in menu
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'j' vi-down-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-
