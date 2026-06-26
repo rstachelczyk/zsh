@@ -39,6 +39,7 @@ ZVM_VI_EDITOR=nvim
 ZVM_SYSTEM_CLIPBOARD_ENABLED=true
 
 zvm_after_init() {
+  # Ctrl + y to accept zsh ghost text completion
   bindkey '^Y' autosuggest-accept
 
   # hjkl in completion menu
