@@ -25,8 +25,8 @@ zplugin-update() {
 
 _zplugin_load zsh-users zsh-autosuggestions
 _zplugin_load zsh-users zsh-history-substring-search
-_zplugin_load jeffreytse zsh-vi-mode
 _zplugin_load zdharma-continuum fast-syntax-highlighting
+_zplugin_load jeffreytse zsh-vi-mode
 
 # +-------------+
 # | ZSH VI MODE |
@@ -37,6 +37,16 @@ ZVM_CURSOR_STYLE_INSERT=beam
 ZVM_CURSOR_STYLE_VISUAL=block
 ZVM_VI_EDITOR=nvim
 ZVM_SYSTEM_CLIPBOARD_ENABLED=true
+
+zvm_after_init() {
+  bindkey '^Y' autosuggest-accept
+
+  # hjkl in completion menu
+  bindkey -M menuselect 'h' vi-backward-char
+  bindkey -M menuselect 'k' vi-up-line-or-history
+  bindkey -M menuselect 'j' vi-down-line-or-history
+  bindkey -M menuselect 'l' vi-forward-char
+}
 
 # zsh-vi-mode resets keymaps on init, clobbering fzf's bindings.
 # Re-source fzf keybindings after zvm finishes initializing.
