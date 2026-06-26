@@ -104,5 +104,5 @@ Included in the repo at [`starship.toml`](./starship.toml) and loaded automatica
 
 Use the following files for config that is machine specific. It will not be tracked in git or stow.
 
-- `~/config/zsh/local.zsh` Aliases or PATH updates (e.g. rcprod to connect to heroku app)
-- `~/config/zsh/zprofile` ENV updates (e.g. ANDROID_HOME on work machine)
+- `~/config/zsh/local.zsh` - Aliases or PATH updates (e.g. `rcprod` to connect to heroku app)
+- `~/config/zsh/.zprofile` - ENV updates (e.g. `ANDROID_HOME` on work machine)
