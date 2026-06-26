@@ -121,5 +121,5 @@ alias dow="$HOME/Downloads"
 alias dot="$HOME/dotfiles"
 alias ic="$HOME/Library/Mobile\ Documents/iCloud~md~obsidian/Documents"
 
-alias aliases="cat $HOME/dotfiles/zsh/.config/aliases.zsh"
+alias aliases="bat $HOME/dotfiles/zsh/.config/zsh/aliases.zsh"
 
