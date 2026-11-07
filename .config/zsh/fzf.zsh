@@ -1,25 +1,14 @@
-# macOS / Homebrew (Apple Silicon)
-if [[ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ]]; then
-  source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
-  source /opt/homebrew/opt/fzf/shell/completion.zsh
-fi
-
-# Arch
-if [[ -f /usr/share/fzf/key-bindings.zsh ]]; then
-  source /usr/share/fzf/key-bindings.zsh
-  source /usr/share/fzf/completion.zsh
-fi
-
-# Ubuntu
-if [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]]; then
-  source /usr/share/doc/fzf/examples/key-bindings.zsh
-  source /usr/share/doc/fzf/examples/completion.zsh
+# Native shell integration (fzf >= 0.48) works the same way regardless of how
+# fzf was installed (Homebrew on macOS, pacman on Arch, apt on Ubuntu), so no
+# need to branch on hardcoded per-OS/per-arch script paths anymore.
+if command -v fzf >/dev/null 2>&1; then
+  source <(fzf --zsh)
 fi
 
 if command -v fd >/dev/null 2>&1; then
   export FZF_DEFAULT_COMMAND='fd --type f --hidden --strip-cwd-prefix --exclude .git'
 elif command -v fdfind >/dev/null 2>&1; then
-  # fd is fdfind on Ubuntu
+  # fd is fdfind on Ubuntu (apt package name collision)
   export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --strip-cwd-prefix --exclude .git'
 fi
 
@@ -33,7 +22,12 @@ export FZF_DEFAULT_OPTS="
   --border
 "
 
-# Ctrl T use bat for preview window 
-export _FZF_PREVIEW_CMD='bat --color=always --style=plain,numbers --line-range=:500 {}'
+# Ctrl T use bat for preview window
+if command -v bat >/dev/null 2>&1; then
+  export _FZF_PREVIEW_CMD='bat --color=always --style=plain,numbers --line-range=:500 {}'
+elif command -v batcat >/dev/null 2>&1; then
+  # bat is batcat on Ubuntu (apt package name collision)
+  export _FZF_PREVIEW_CMD='batcat --color=always --style=plain,numbers --line-range=:500 {}'
+fi
 export FZF_CTRL_T_OPTS="--preview '$_FZF_PREVIEW_CMD'"
 
